@@ -15,6 +15,21 @@ app.get('/', (req, res) => {
     res.render('home'); // we don't need to specify the extension name because it's already set the view engine to ejs.
 })
 
+// creating a route to get a rendom number every time the page refreshes. And using ejs to template it to random.ejs.
+
+app.get('/rand', (req, res) => {
+    const randomNum = Math.floor(Math.random() * 100) + 1;
+    res.render('random', {randomNum}, (err) => {
+        if(err){
+            console.log("errror")
+        }else{
+            console.log("working")
+        }
+    })
+})
+
+
+
 app.listen(port, (err) => {
     if(err){
         console.log("error")
