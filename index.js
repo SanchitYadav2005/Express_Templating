@@ -19,13 +19,16 @@ app.get('/', (req, res) => {
 
 app.get('/rand', (req, res) => {
     const randomNum = Math.floor(Math.random() * 100) + 1;
-    res.render('random', {randomNum}, (err) => {
-        if(err){
-            console.log("errror")
-        }else{
-            console.log("working")
-        }
-    })
+    res.render('random', {randomNum});
+});
+
+// working with loops in ejs.
+
+app.get('/location', (req, res) => {
+    const locations = [
+        "india", "newzeland", "australia", "america", "london"
+    ];
+    res.render('location', {locations})
 })
 
 
